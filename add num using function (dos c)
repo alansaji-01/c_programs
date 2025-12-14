@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <conio.h>
 
-int addfun(int x, int y);   // ✅ semicolon added
+int addfun(int x, int y);
 
 int main()
 {

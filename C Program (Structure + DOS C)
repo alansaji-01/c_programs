@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <conio.h>
+
+struct employee {
+    char name[30];
+    char month[15];
+    int days;
+    float salary;
+};
+
+void main() {
+    struct employee e[6];
+    int i;
+    float perDay = 800;
+
+    clrscr();
+
+    for(i = 0; i < 6; i++) {
+        printf("\nEnter details of employee %d\n", i+1);
+
+        printf("Name: ");
+        scanf("%s", e[i].name);
+
+        printf("Month: ");
+        scanf("%s", e[i].month);
+
+        printf("Days worked (max 25): ");
+        scanf("%d", &e[i].days);
+
+        if(e[i].days > 25)
+            e[i].days = 25;
+
+        e[i].salary = e[i].days * perDay;
+    }
+
+    clrscr();
+    printf("===== EMPLOYEE SALARY DETAILS =====\n");
+
+    for(i = 0; i < 6; i++) {
+        printf("\nEmployee %d\n", i+1);
+        printf("Name  : %s\n", e[i].name);
+        printf("Month : %s\n", e[i].month);
+        printf("Days  : %d\n", e[i].days);
+        printf("Salary: Rs. %.2f\n", e[i].salary);
+    }
+
+    getch();
+}

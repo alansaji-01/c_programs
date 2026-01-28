@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <conio.h>
+
+void reverseNumber() {
+    int num, rev = 0, digit;
+    printf("\nEnter a 5-digit number: ");
+    scanf("%d", &num);
+
+    while(num != 0) {
+        digit = num % 10;
+        rev = rev * 10 + digit;
+        num = num / 10;
+    }
+
+    printf("Reversed number = %d\n", rev);
+}
+
+void largestFloat() {
+    float a, b;
+    printf("\nEnter two float numbers: ");
+    scanf("%f %f", &a, &b);
+
+    if(a > b)
+        printf("Largest number = %.2f\n", a);
+    else
+        printf("Largest number = %.2f\n", b);
+}
+
+void evenOrMultiply() {
+    int n;
+    printf("\nEnter an integer: ");
+    scanf("%d", &n);
+
+    if(n % 2 == 0)
+        printf("Result = %d\n", n / 2);
+    else
+        printf("Result = %d\n", n * 3);
+}
+
+void checkEqual() {
+    int a, b, c;
+    printf("\nEnter three integers: ");
+    scanf("%d %d %d", &a, &b, &c);
+
+    if(a == b || b == c || a == c)
+        printf("At least two numbers are equal.\n");
+    else
+        printf("All numbers are different.\n");
+}
+
+void main() {
+    int choice;
+    clrscr();
+
+    printf("===== MENU =====\n");
+    printf("1. Reverse a 5-digit number\n");
+    printf("2. Largest of two floats\n");
+    printf("3. Divide by 2 or multiply by 3\n");
+    printf("4. Check equality of three numbers\n");
+    printf("Enter your choice (1-4): ");
+    scanf("%d", &choice);
+
+    switch(choice) {
+        case 1:
+            reverseNumber();
+            break;
+        case 2:
+            largestFloat();
+            break;
+        case 3:
+            evenOrMultiply();
+            break;
+        case 4:
+            checkEqual();
+            break;
+        default:
+            printf("Invalid choice!\n");
+    }
+
+    getch();
+}

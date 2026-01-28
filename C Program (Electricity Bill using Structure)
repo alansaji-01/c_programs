@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <conio.h>
+
+struct consumer {
+    char name[30];
+    int number;
+    int units;
+    float bill;
+};
+
+void main() {
+    struct consumer c[5];
+    int i;
+
+    clrscr();
+
+    printf("ELECTRICITY BILL CALCULATION PROGRAM\n");
+
+    for(i = 0; i < 5; i++) {
+        printf("\nEnter details of consumer %d\n", i+1);
+
+        printf("Name: ");
+        scanf("%s", c[i].name);
+
+        printf("Consumer Number: ");
+        scanf("%d", &c[i].number);
+
+        printf("Units Consumed: ");
+        scanf("%d", &c[i].units);
+
+        if(c[i].units <= 100)
+            c[i].bill = c[i].units * 3;
+        else
+            c[i].bill = (100 * 3) + ((c[i].units - 100) * 5);
+    }
+
+    clrscr();
+
+    printf("ELECTRICITY BILL DETAILS\n");
+
+    for(i = 0; i < 5; i++) {
+        printf("\nName  : %s", c[i].name);
+        printf("\nNumber: %d", c[i].number);
+        printf("\nBill  : Rs. %.2f\n", c[i].bill);
+    }
+
+    getch();
+}
